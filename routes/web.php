@@ -11,6 +11,8 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'WebController@showHome');
+
+Route::get('/spending', 'WebController@showSpendingInputPage');
+
+Route::get('/', 'WebController@showHome');
