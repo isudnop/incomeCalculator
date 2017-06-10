@@ -15,4 +15,4 @@ Route::get('/', 'WebController@showHome');
 
 Route::get('/spending', 'WebController@showSpendingInputPage');
 
-Route::get('/', 'WebController@showHome');
+Route::get('/summary', 'WebController@showHome');
