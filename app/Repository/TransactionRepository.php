@@ -33,7 +33,7 @@ class TransactionRepository
      */
     public function edit(int $id, array $params)
     {
-        $this->transaction->where($id)
+        $this->transaction->where('id', $id)
             ->update([
                 $params
             ]);
