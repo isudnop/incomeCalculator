@@ -34,7 +34,7 @@ class CategoriesController extends Controller
     {
         $params = $request->all();
 
-        $this->categoryRepository->edit($id, $request);
+        $this->categoryRepository->edit($id, $params);
 
         return redirect('show-category');
     }
