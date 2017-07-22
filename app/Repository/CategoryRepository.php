@@ -3,25 +3,11 @@
 namespace App\Repository;
 
 use App\Models\Categories;
-use App\Models\CategoryGroup;
 
-class CategoryRepository
+class CategoryRepository extends CommonRepository
 {
-    public function __construct(Categories $category, CategoryGroup $group)
+    public function model()
     {
-        $this->category = $category;
-        $this->group    = $group;
+        return '\App\Models\Categories';
     }
-
-    public function createCategory(){}
-
-    public function createGroup(){}
-    
-    public function editCategory(){}
-
-    public function editGroup(){}
-
-    public function deleteCategory(){}
-
-    public function deleteGroup(){}
 }
