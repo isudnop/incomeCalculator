@@ -20,9 +20,4 @@ class WebController extends Controller
     {
         return view('summary');
     }
-
-    public function showCategoryPage()
-    {
-        return view('category');
-    }
 }

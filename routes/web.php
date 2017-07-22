@@ -16,3 +16,7 @@ Route::get('/', 'WebController@showHome');
 Route::get('/spending', 'WebController@showSpendingInputPage');
 
 Route::get('/summary', 'WebController@showHome');
+
+Route::get('/categories', 'CategoriesController@showCategoryPage')->name('show-category');
+
+Route::post('/categories', 'CategoriesController@addCategory')->name('add-category');
