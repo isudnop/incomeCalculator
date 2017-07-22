@@ -10,11 +10,13 @@ class Transaction extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['memo','amount','transaction_type','category_id'];
+    protected $fillable = ['memo','amount','transaction_type','category_id', 'transaction_date'];
 
     protected $table = 'transaction';
 
     protected $guarded = ['id'];
+
+    protected $casts = ['transaction_date' => 'date'];
 
     public function category() : belongsTo
     {
