@@ -9,6 +9,11 @@ class CategoriesController extends Controller
 {
     protected $categoryRepository;
 
+    /**
+     * CategoriesController constructor.
+     *
+     * @param CategoryRepository $categoryRepository
+     */
     public function __construct(CategoryRepository $categoryRepository)
     {
         $this->categoryRepository = $categoryRepository;
