@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Repository;
 
 use Carbon\Carbon;
@@ -13,9 +14,10 @@ class TransactionRepository extends CommonRepository
 
     /**
      * @param int $catId
+     *
      * @return Collection
      */
-    public function getByCategoryId(int $catId) : Collection
+    public function getByCategoryId(int $catId): Collection
     {
         return $this->model->where('category_id', $catId)->get();
     }
@@ -26,7 +28,7 @@ class TransactionRepository extends CommonRepository
      *
      * @return Collection
      */
-    public function getByDateRange(Carbon $startDate, Carbon $endDate) : Collection
+    public function getByDateRange(Carbon $startDate, Carbon $endDate): Collection
     {
         return $this->model->whereBetween('created_at', [$startDate, $endDate])->get();
     }

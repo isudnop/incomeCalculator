@@ -9,7 +9,7 @@ class Categories extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['name','group_id'];
+    protected $fillable = ['name', 'group_id'];
 
     protected $table = 'category_group';
 

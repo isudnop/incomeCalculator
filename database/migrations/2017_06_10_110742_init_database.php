@@ -1,15 +1,13 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
 class InitDatabase extends Migration
 {
     /**
      * Run the migrations.
-     *
-     * @return void
      */
     public function up()
     {
@@ -24,24 +22,22 @@ class InitDatabase extends Migration
             $table->string('name');
             $table->integer('group_id');
             $table->timestamps();
-            $table->foreign('group_id','category_group');
+            $table->foreign('group_id', 'category_group');
         });
 
         Schema::create('transaction', function (Blueprint $table) {
             $table->increments('id');
             $table->string('memo');
             $table->float('amount');
-            $table->enum('transaction_type',['income','outcome']);
+            $table->enum('transaction_type', ['income', 'outcome']);
             $table->integer('category_id');
             $table->timestamps();
-            $table->foreign('category_id','categories');
+            $table->foreign('category_id', 'categories');
         });
     }
 
     /**
      * Reverse the migrations.
-     *
-     * @return void
      */
     public function down()
     {

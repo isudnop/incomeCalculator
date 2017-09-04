@@ -10,7 +10,7 @@ class Transaction extends Model
 {
     use SoftDeletes;
 
-    protected $fillable = ['memo','amount','transaction_type','category_id', 'transaction_date'];
+    protected $fillable = ['memo', 'amount', 'transaction_type', 'category_id', 'transaction_date'];
 
     protected $table = 'transaction';
 
@@ -18,7 +18,7 @@ class Transaction extends Model
 
     protected $casts = ['transaction_date' => 'date'];
 
-    public function category() : belongsTo
+    public function category(): belongsTo
     {
         return $this->belongsTo('\App\Model\Categoeries', 'category_id', 'id');
     }

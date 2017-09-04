@@ -9,17 +9,17 @@ use Illuminate\Database\Eloquent\Model;
 
 abstract class CommonRepository implements RepositoryInterface
 {
-    /** @var App */
-    private $app;
     /** @var Builder */
     protected $model;
     /** @var Carbon */
     protected $carbon;
+    /** @var App */
+    private $app;
 
     /**
      * CommonRepository constructor.
      *
-     * @param App $app
+     * @param App    $app
      * @param Carbon $carbon
      */
     public function __construct(App $app, Carbon $carbon)
@@ -30,19 +30,20 @@ abstract class CommonRepository implements RepositoryInterface
     }
 
     /**
-     * Specify Model class name
+     * Specify Model class name.
      *
      * @return mixed
      */
-    abstract function model();
+    abstract public function model();
 
     /**
-     * Make builder of specific model
-     * @return \Illuminate\Database\Eloquent\Builder
+     * Make builder of specific model.
      *
      * @throws \Exception
+     *
+     * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function makeModel() : Builder
+    public function makeModel(): Builder
     {
         $model = $this->app->make($this->model());
 
@@ -56,7 +57,7 @@ abstract class CommonRepository implements RepositoryInterface
     }
 
     /**
-     * Create Transaction
+     * Create Transaction.
      *
      * @param array $params
      *
@@ -68,23 +69,23 @@ abstract class CommonRepository implements RepositoryInterface
     }
 
     /**
-     * @param int $id
+     * @param int   $id
      * @param array $params
-     *
      */
     public function edit(int $id, array $params)
     {
         $this->model->where('id', $id)
             ->update([
-                $params
+                $params,
             ]);
     }
 
     /**
      * @param int $id
+     *
      * @return bool
      */
-    public function delete(int $id) : bool
+    public function delete(int $id): bool
     {
         return $this->model->findOrFail($id)->delete();
     }
