@@ -11,6 +11,7 @@
         "twbs/bootstrap": "^3.3"
     },
     "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.5",
         "fzaninotto/faker": "~1.4",
         "mockery/mockery": "0.9.*",
         "phpunit/phpunit": "~5.7"
@@ -42,7 +43,9 @@
         "post-update-cmd": [
             "Illuminate\\Foundation\\ComposerScripts::postUpdate",
             "php artisan optimize"
-        ]
+        ],
+	"cs": "vendor/bin/php-cs-fixer fix ./ -v --dry-run --config ./.php_cs",
+        "cs-fix": "vendor/bin/php-cs-fixer fix ./ -v --config ./.php_cs"
     },
     "config": {
         "preferred-install": "dist",
